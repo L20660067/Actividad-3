@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://img.freepik.com/foto-gratis/pico-montana-nevada-majestuosidad-galaxia-estrellada-ia-generativa_188544-9650.jpg'); 
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        input[type="text"], input[type="submit"] {
+            width: 80%;
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: pink;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Formulario de Registro</h2>
+        <form id="registroForm" onsubmit="return validarFormulario()">
+            <input type="text" id="nombre" name="noname" placeholder="Nombre">
+            <span id="errorNombre" class="error"></span>
+            <input type="submit" value="Registrar">
+        </form>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            var nombre = document.getElementById("nombre").value;
+            var errorNombre = document.getElementById("errorNombre");
+
+            if (nombre === "") {
+                errorNombre.textContent = "El campo de nombre no puede estar vacío";
+                return false;
+            } else {
+                errorNombre.textContent = "";
+                return true;
+            }
+        }
+    </script>
+
+</body>
+</html>
